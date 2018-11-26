@@ -393,6 +393,19 @@ public class Mat {
     }
 
     //
+    // C++: long Mat::data()
+    //
+
+    // javadoc: Mat::data()
+    public ByteBuffer data()
+    {
+
+        ByteBuffer retVal = n_data(nativeObj);
+
+        return retVal;
+    }
+
+    //
     // C++: long Mat::dataAddr()
     //
 
@@ -1240,6 +1253,9 @@ public class Mat {
 
     // C++: Mat Mat::cross(Mat m)
     private static native long n_cross(long nativeObj, long m_nativeObj);
+
+    // C++: long Mat::data()
+    private static native ByteBuffer n_data(long nativeObj);
 
     // C++: long Mat::dataAddr()
     private static native long n_dataAddr(long nativeObj);

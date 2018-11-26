@@ -772,6 +772,23 @@ JNIEXPORT jlong JNICALL Java_org_opencv_core_Mat_n_1cross
 
 
 //
+//  java.nio.ByteBuffer Mat::data()
+//
+
+JNIEXPORT jobject JNICALL Java_org_opencv_core_Mat_n_1data
+  (JNIEnv*, jclass, jlong self);
+
+JNIEXPORT jobject JNICALL Java_org_opencv_core_Mat_n_1data
+  (JNIEnv* env, jclass, jlong self)
+{
+    LOGD("Mat::n_1data()");
+    Mat* me = (Mat*) self; //TODO: check for NULL
+    return env->NewDirectByteBuffer(me->data, me->step * me->rows);
+}
+
+
+
+//
 //  long Mat::dataAddr()
 //
 
